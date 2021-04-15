@@ -1,0 +1,15 @@
+        private void btnxml_Click(object sender, RoutedEventArgs e)
+        {
+            List<Pilot> pilots = new List<Pilot>(dbclass.db.Pilot.ToList());
+            string path = @"C:\Users\Esnodt\Documents\Data.txt";
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                foreach(var item in pilots)
+                {
+                    writer.WriteLine(item.ID);
+                    writer.WriteLine(item.FullName);
+                    writer.WriteLine(item.WorkExperience);
+                    writer.WriteLine(item.Education);
+                }
+            }
+        }
