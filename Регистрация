@@ -1,0 +1,35 @@
+ private void btnlogin_Click(object sender, RoutedEventArgs e)
+        {
+
+               if (tblogin.Text == "1" && tbpassword.Text == "1")
+            {
+                NavigationService.Navigate(new nextpage());
+            }
+
+
+        }
+
+        private void tblogin_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (tblogin.Text == tbpassword.Text & tblogin.Text != "")
+            {
+                btnregister.IsEnabled = true;
+            }
+
+            else
+            {
+                btnregister.IsEnabled = false;
+            }
+        }
+
+        private void tbpassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (tblogin.Text == tbpassword.Text & tblogin.Text != "")
+            {
+                btnregister.IsEnabled = true;
+            }
+
+            else
+            {
+                btnregister.IsEnabled = false;
+            }
