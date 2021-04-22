@@ -1,0 +1,33 @@
+  private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            testcombo newTestCombo = new testcombo();
+
+            newTestCombo.Name = txbName.Text;
+
+            var addcmb = dbcontext.db.gender.FirstOrDefault(item => item.gender1 == cmb.Text);
+            newTestCombo.idHuman = addcmb.id;
+
+            dbcontext.db.testcombo.Add(newTestCombo);
+            dbcontext.db.SaveChanges();
+
+            MessageBox.Show("Успешно!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        
+        
+        CREATE DATABASE [TestComboBox]
+
+use [TestComboBox]
+
+create table [testcombo]
+(
+[id] int primary key identity(1,1),
+[idHuman] int constraint said_loh foreign key references [gender]([id])  
+)
+
+
+create table [gender]
+(
+[id] int primary key identity(1,1),
+[gender] nvarchar(max)
+)		
+
