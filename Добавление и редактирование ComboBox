@@ -1,0 +1,23 @@
+Добавление
+
+   private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            tbGender.ItemsSource = dbcontext.db.GenderTable.Select(item => item.Gender).ToList();
+        }
+        
+           var addcombo = dbcontext.db.GenderTable.FirstOrDefault(item => item.Gender == tbGender.Text);
+           
+           AddAdditionalInformation.idGender = addcombo.ID;
+           
+           
+           
+          
+Редактирование
+
+ tbGender.SelectedItem = editmain.AdditionalInformation.GenderTable.Gender;
+ tbGender.ItemsSource = dbcontext.db.GenderTable.Select(item => item.Gender).ToList();
+            
+            
+            в Кнопке
+            var currentGender = dbcontext.db.GenderTable.FirstOrDefault(item => item.Gender == tbGender.Text);
+            editmain.AdditionalInformation.idGender = currentGender.ID;
